@@ -2,7 +2,9 @@
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
-    gap: 110px;
+    gap: 60px;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .activeCell {
@@ -13,26 +15,99 @@
     background-color: RGB(60, 179, 113);
     cursor: pointer;
 }
+
 .activeCell:hover {
-        background-color: rgb(52, 145, 94); /* Цвет, потемнее */
-    
+    background-color: rgb(52, 145, 94);
+    /* Цвет, потемнее */
+
 }
 
 .activeBoard {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
     gap: 2px;
 }
 
 .inactiveBoard {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
     gap: 2px;
 }
 
 .inactiveCell {
     background-color: rgb(192, 192, 192);
     cursor: not-allowed;
+}
+
+/* Стили для фонового затемнения */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* полупрозрачный черный цвет */
+    z-index: 1000;
+    /* чтобы поп-ап был выше остальных элементов */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стили для самого поп-апа */
+/* Стили для самого поп-апа */
+.activePopup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    /* максимальная ширина поп-апа */
+    position: absolute;
+    /* изменено на абсолютное позиционирование */
+    top: 50%;
+    /* расположение по вертикали в середине */
+    left: 50%;
+    /* расположение по горизонтали в середине */
+    transform: translate(-50%, -50%);
+    /* сдвигаем на половину размеров элемента */
+}
+
+.inactivePopup {
+    display: none;
+}
+
+/* Стили для текста проигрыша */
+.popup h2 {
+    color: #ff5722;
+    /* оранжевый цвет текста */
+    font-size: 24px;
+    /* увеличение размера шрифта */
+}
+
+/* Стили для кнопки новой игры */
+.popup button {
+    background-color: #4caf50;
+    /* зеленый цвет кнопки */
+    color: #fff;
+    /* белый цвет текста на кнопке */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    /* чтобы кнопка занимала всю ширину родительского контейнера */
+    margin-left: auto;
+    /* выравнивание кнопки по центру */
+    margin-right: auto;
+}
+
+.popup button:hover {
+    background-color: #45a049;
+    /* зеленый цвет кнопки при наведении */
 }
