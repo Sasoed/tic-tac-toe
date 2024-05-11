@@ -1,0 +1,15 @@
+/* Стили для игрового поля */
+.allBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 110px;
+}
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: lightgray;
+    cursor: pointer;
+}
