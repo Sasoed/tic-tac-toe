@@ -12,13 +12,14 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    background-color: RGB(60, 179, 113);
+    background-color: rgba(60, 179, 114, 0);
     cursor: pointer;
+     border-radius: 10px;
 }
 
 .activeCell:hover {
-    background-color: rgb(52, 145, 94);
-    /* Цвет, потемнее */
+    background-color: rgba(0, 0, 0, 0.091);
+    border-radius: 10px;
 
 }
 
@@ -37,8 +38,9 @@
 }
 
 .inactiveCell {
-    background-color: rgb(192, 192, 192);
+    background-color: rgba(192, 192, 192, 0);
     cursor: not-allowed;
+    border-radius: 10px;
 }
 
 /* Стили для фонового затемнения */
@@ -57,11 +59,26 @@
     align-items: center;
 }
 
-/* Стили для самого поп-апа */
+/* Анимация для градиента */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Элемент с анимированным градиентом на фоне */
+  html {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b, #ffeda6, #c1e1d6, #00ff99, #ff7e5f); /* Градиент */
+    background-size: 300% 300%; /* Увеличиваем размер градиента */
+    animation: gradientAnimation 20s ease infinite; /* Применяем анимацию к градиенту */
+  }
+  
 /* Стили для самого поп-апа */
 .activePopup {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #1acfb700;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -82,24 +99,27 @@
 }
 
 /* Стили для текста проигрыша */
-.popup h2 {
-    color: #ff5722;
-    /* оранжевый цвет текста */
+.activePopup pre {
     font-size: 24px;
-    /* увеличение размера шрифта */
+    background-color: #2AA5A0;
+    background-image: linear-gradient(45deg, #000000, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+
+
+
 /* Стили для кнопки новой игры */
-.popup button {
-    background-color: #4caf50;
+.activePopup button {
+    background-color: #4caf4f00;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     /* зеленый цвет кнопки */
     color: #fff;
     /* белый цвет текста на кнопке */
-    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
     display: block;
     /* чтобы кнопка занимала всю ширину родительского контейнера */
     margin-left: auto;
@@ -107,7 +127,10 @@
     margin-right: auto;
 }
 
-.popup button:hover {
-    background-color: #45a049;
-    /* зеленый цвет кнопки при наведении */
+.newGame{
+    font-size: 20px;
+    background-color: #2AA5A0;
+    background-image: linear-gradient(35deg, #000000, #ff0000); /* Градиент */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
